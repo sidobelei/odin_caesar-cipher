@@ -1,5 +1,8 @@
 def caesar_cipher (string, shift_factor)
     old_string = string.split("")
+    if shift_factor > 26 
+        shift_factor = shift_factor % 26
+    end
     modified_string = old_string.map do |char|
         ascii_char = char.ord
         if (65..90).include?(ascii_char) || (97..122).include?(ascii_char)
@@ -22,6 +25,7 @@ def caesar_cipher (string, shift_factor)
         ascii_char.chr
     end
     puts modified_string.join
-end
+end 
 
-caesar_cipher("What a string!", 29)
+#Uncomment below to see output and change parameters
+#caesar_cipher("What a string!", 5)
