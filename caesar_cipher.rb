@@ -1,5 +1,6 @@
 def caesar_cipher (string, shift_factor)
-    old_string = string.split("")
+    old_string = verify_string(string)
+    return unless old_string
     if shift_factor > 26 
         shift_factor = shift_factor % 26
     end
@@ -25,6 +26,10 @@ def caesar_cipher (string, shift_factor)
         ascii_char.chr
     end
     puts modified_string.join
+end
+
+def verify_string(string)
+    string.split("") if string.is_a?(String)
 end 
 
 #Uncomment below to see output and change parameters
