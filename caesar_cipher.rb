@@ -22,10 +22,6 @@ def normalize_shift_factor(shift_factor)
 end
 
 def modify_string(string, shift_factor)
-    if shift_factor > 26
-        wrap = shift_factor / 26
-        shift_factor = shift_factor - (26 * wrap)
-    end
     modified_string = string.map do |char|
         ascii_char = char.ord
         if (65..90).include?(ascii_char) || (97..122).include?(ascii_char)
