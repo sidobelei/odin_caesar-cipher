@@ -2,6 +2,9 @@ def caesar_cipher (string, shift_factor)
     old_string = verify_string(string)
     return unless old_string
     shift_factor = normalize_shift_factor(shift_factor)
+    return unless shift_factor
+    old_string
+    shift_factor
     modified_string = modify_string(old_string, shift_factor)
     puts modified_string
 end
@@ -11,6 +14,7 @@ def verify_string(string)
 end 
 
 def normalize_shift_factor(shift_factor)
+    return unless shift_factor
     if shift_factor > 26 
         shift_factor = shift_factor % 26
     end
