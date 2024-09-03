@@ -33,3 +33,27 @@ describe '#normalize_shift_factor' do
     end
   end
 end
+
+describe 'modify_string' do
+  let(:string_array) { ["W", "h", "a", "t", " ", "a", " ", "s", "t", "r", "i", "n", "g", "!"] }
+  context 'when the shift factor is 0' do
+    it 'returns the unmodified string' do
+      expect(modify_string(string_array, 0)).to eq('What a string!')
+    end
+  end
+  context 'when the shift factor is less than 26' do
+    it 'returns the string shifted by 20 letters' do
+      expect(modify_string(string_array, 20)).to eq('Qbun u mnlcha!')
+    end
+  end
+  context 'when the shift factor is 26' do
+    it 'returns the unmodified string' do
+      expect(modify_string(string_array, 26)).to eq('What a string!')
+    end
+  end
+  context 'when the shift factor is more than 26' do
+    it 'returns the string shifted by 100 letters' do
+      expect(modify_string(string_array, 100)).to eq('Sdwp w opnejc!')
+    end
+  end
+end
